@@ -1,0 +1,76 @@
+body {
+    background: #050505;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container { width: 90%; max-width: 600px; text-align: center; }
+
+.black-box {
+    width: 150px;
+    height: 150px;
+    background: #000;
+    border: 1px solid #00ff41;
+    margin: 0 auto 30px;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+    animation: rotateBox 15s infinite linear;
+}
+
+@keyframes rotateBox {
+    from { transform: rotateY(0deg) rotateX(0deg); }
+    to { transform: rotateY(360deg) rotateX(180deg); }
+}
+
+#timer {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.clue-box {
+    background: rgba(0, 255, 65, 0.05);
+    border: 1px solid #00ff41;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.label { font-weight: bold; color: #fff; display: block; margin-bottom: 5px; }
+
+form {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #000;
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #00ff41;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover { background: #fff; }
+
+.hint { font-size: 0.7rem; color: #555; }
+

@@ -171,3 +171,4 @@ if (localStorage.getItem('enrolled')) {
         setInterval(() => updateUI(finalTarget), 1000);
     });
 }
+

@@ -7,33 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="auth-screen" class="overlay">
+        <form id="registration-form" class="auth-box">
+            <h2>זיהוי נדרש</h2>
+            <p>המערכת נעולה. הרשם כדי לקבל גישה לפרוטוקול.</p>
+            <input type="text" id="name" placeholder="שם מלא" required>
+            <input type="email" id="email" placeholder="כתובת אימייל" required>
+            <input type="date" id="dob" required>
+            <button type="submit" id="submit-btn">התחבר למעגל</button>
+            <p class="hint">כל השדות חובה | זיהוי אוטומטי פעיל</p>
+        </form>
+    </div>
 
-    <div class="container">
+    <div id="main-content" class="container hidden">
+        <div class="scanline"></div>
         <div class="black-box"></div>
-        <div id="timer" class="glitch-text">000d 00h 00m 00s</div>
 
-        <div id="clues-container">
-            <div class="clue-box">
-                <span class="label">ניטור יומי:</span>
-                <p id="daily-clue">ממתין לפרוטוקול 12:00...</p>
-            </div>
-            <div class="clue-box weekly">
-                <span class="label">דוח שבועי:</span>
-                <p id="weekly-clue">ננעל.</p>
-            </div>
+        <div class="timer-section main-timer">
+            <span class="timer-label">זמן לחשיפה סופית</span>
+            <div id="final-timer" class="glitch">--:--:--:--</div>
         </div>
 
-        <form id="registration-form">
-            <h3>כניסה למערכת</h3>
-            <input type="text" id="name" placeholder="שם מלא" required>
-            <input type="email" id="email" placeholder="אימייל" required>
-            <input type="date" id="dob" required title="תאריך לידה">
-            <button type="submit" id="submit-btn">התחבר למעגל</button>
-            <p class="hint">זיהוי משתמש אוטומטי פעיל</p>
-        </form>
+        <div class="secondary-timers">
+            <div class="timer-card">
+                <span class="card-label">רמז יומי בעוד:</span>
+                <div id="daily-timer" class="small-timer">--:--:--</div>
+                <div id="daily-content" class="clue-display">מחפש נתונים...</div>
+            </div>
+
+            <div class="timer-card">
+                <span class="card-label">דוח שבועי בעוד:</span>
+                <div id="weekly-timer" class="small-timer">--:--:--</div>
+                <div id="weekly-content" class="clue-display">ממתין לאיסוף...</div>
+            </div>
+
+            <div class="timer-card">
+                <span class="card-label">פרוטוקול חודשי בעוד:</span>
+                <div id="monthly-timer" class="small-timer">--:--:--</div>
+                <div id="monthly-content" class="clue-display">בקידוד...</div>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="app.js"></script>
 </body>
 </html>
-

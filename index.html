@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מעגל סגור | המערכת מתעוררת</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="black-box"></div>
+        <div id="timer" class="glitch-text">000d 00h 00m 00s</div>
+
+        <div id="clues-container">
+            <div class="clue-box">
+                <span class="label">ניטור יומי:</span>
+                <p id="daily-clue">ממתין לפרוטוקול 12:00...</p>
+            </div>
+            <div class="clue-box weekly">
+                <span class="label">דוח שבועי:</span>
+                <p id="weekly-clue">ננעל.</p>
+            </div>
+        </div>
+
+        <form id="registration-form">
+            <h3>כניסה למערכת</h3>
+            <input type="text" id="name" placeholder="שם מלא" required>
+            <input type="email" id="email" placeholder="אימייל" required>
+            <input type="date" id="dob" required title="תאריך לידה">
+            <button type="submit" id="submit-btn">התחבר למעגל</button>
+            <p class="hint">זיהוי משתמש אוטומטי פעיל</p>
+        </form>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
+

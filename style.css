@@ -1,76 +1,69 @@
+:root {
+    --neon-green: #00ff41;
+    --dark-bg: #050505;
+}
+
 body {
-    background: #050505;
-    color: #00ff41;
-    font-family: 'Courier New', Courier, monospace;
+    background: var(--dark-bg);
+    color: var(--neon-green);
+    font-family: 'Courier New', monospace;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     overflow-x: hidden;
 }
 
-.container { width: 90%; max-width: 600px; text-align: center; }
+.overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: #000; display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+
+.auth-box {
+    border: 1px solid var(--neon-green); padding: 40px; text-align: center;
+    background: #0a0a0a; box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
+}
+
+.hidden { display: none !important; }
+
+.container { padding: 40px 20px; text-align: center; }
+
+.main-timer { margin-bottom: 60px; }
+#final-timer { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: bold; text-shadow: 0 0 20px var(--neon-green); }
+
+.secondary-timers {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 25px;
+}
+
+.timer-card {
+    background: rgba(0, 255, 65, 0.03); border: 1px solid #1a1a1a;
+    padding: 20px; width: 280px; transition: 0.3s;
+}
+
+.timer-card:hover { border-color: var(--neon-green); background: rgba(0, 255, 65, 0.07); }
+
+.small-timer { font-size: 1.8rem; color: #fff; margin: 10px 0; }
+
+.clue-display {
+    font-size: 0.95rem; border-top: 1px solid #222; padding-top: 15px; color: #aaa;
+}
 
 .black-box {
-    width: 150px;
-    height: 150px;
-    background: #000;
-    border: 1px solid #00ff41;
-    margin: 0 auto 30px;
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
-    animation: rotateBox 15s infinite linear;
+    width: 120px; height: 120px; background: #000; border: 1px solid var(--neon-green);
+    margin: 0 auto 40px; animation: rotate 20s infinite linear;
 }
 
-@keyframes rotateBox {
-    from { transform: rotateY(0deg) rotateX(0deg); }
-    to { transform: rotateY(360deg) rotateX(180deg); }
-}
-
-#timer {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-}
-
-.clue-box {
-    background: rgba(0, 255, 65, 0.05);
-    border: 1px solid #00ff41;
-    padding: 15px;
-    margin-bottom: 15px;
-    text-align: right;
-}
-
-.label { font-weight: bold; color: #fff; display: block; margin-bottom: 5px; }
-
-form {
-    border-top: 1px solid #333;
-    padding-top: 20px;
-    margin-top: 20px;
-}
+@keyframes rotate { from { transform: rotateY(0deg) rotateX(0deg); } to { transform: rotateY(360deg) rotateX(180deg); } }
 
 input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    background: #000;
-    border: 1px solid #00ff41;
-    color: #00ff41;
-    box-sizing: border-box;
+    display: block; width: 100%; max-width: 300px; margin: 15px auto; padding: 12px;
+    background: #000; border: 1px solid var(--neon-green); color: var(--neon-green);
 }
 
 button {
-    width: 100%;
-    padding: 15px;
-    background: #00ff41;
-    color: #000;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+    padding: 12px 40px; background: var(--neon-green); color: #000;
+    border: none; font-weight: bold; cursor: pointer; text-transform: uppercase;
 }
 
-button:hover { background: #fff; }
-
-.hint { font-size: 0.7rem; color: #555; }
-
+.scanline {
+    width: 100%; height: 5px; z-index: 999; position: fixed;
+    background: rgba(0, 255, 65, 0.1); opacity: 0.3; pointer-events: none; animation: scan 6s linear infinite;
+}
+@keyframes scan { from { top: -5px; } to { top: 100%; } }
